@@ -3,7 +3,11 @@ import PIL.Image
 
 #### IMAGE OFFSET (HEX VAL) == FFD9
 ## 'ab' == append bytes
-
+''' 
+    * The code embeds hidden messages into png, and writes binary data to datastructure. The emedded file will execute upon running program, so beware.. 
+    * Currently works with pictures [offset val FFD9]; however- the code can be refactored for .PDF .Doc etc.. [Refactor The Code Finding Data-Structures 
+    * Offset Value in Hex. 
+'''
 ### Vars ###
 cwd = os.getcwd()
 img_name = '/photo.jpg'
