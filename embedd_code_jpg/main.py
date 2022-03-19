@@ -1,15 +1,15 @@
 import os, sys, traceback, io, time
 import PIL.Image
-# copyleft material, all wrongs reserved. 
+# copyleft material, all wrongs reserved.
 
 ############ IMPORTANT CODE FOR REFACTOR ###############
 ##  IMAGE OFFSET (HEX VAL) == FFD9
 ## 'ab' == append bytes
-## OFFSET = byte_content.index(bytes.fromhex('FFD9')) --> to find hex offset val 
-## f.seek(OFFSET+2) --> to read hex after .picture offset val. 
-## inject_bytes = PIL.Image.open(inject_img_bytes) <-- create new file 
-## byte_array = io.BytesIO() <-- create new file 
-## inject_bytes.save(byte_array, format='PNG') <-- create new file 
+## OFFSET = byte_content.index(bytes.fromhex('FFD9')) --> to find hex offset val
+## f.seek(OFFSET+2) --> to read hex after .picture offset val.
+## inject_bytes = PIL.Image.open(inject_img_bytes) <-- create new file
+## byte_array = io.BytesIO() <-- create new file
+## inject_bytes.save(byte_array, format='PNG') <-- create new file
 ##     try: [<--- WRITE BINARY TO FILE]
 ##        with open(orig_img, 'ab') as f, open(exec_file, 'rb') as e:
 ##            f.write(e.read())
@@ -21,12 +21,12 @@ import PIL.Image
     * Offset Value in Hex. 
 '''
 ### Global Vars ###
-# names 
+# names
 img_name = '/photo.jpg'
 img_name_2 = '/photo2.jpg'
 executable_toEmbed = 'sample.exe'
 
-# dirs 
+# dirs
 cwd = os.getcwd()
 img_dir = str(cwd) + str(img_name)
 img_dir_2 = str(cwd) + str(img_name_2)
@@ -125,7 +125,7 @@ def retrieve_embedded_exec(orig_img, exec_file):
             content = f.read()
             OFFSET = content.index(bytes.fromhex('FFD9'))
             f.seek(OFFSET+2)
-        with open(exec_file) as e:
+        with open(exec_file, 'wb') as e:
             e.write(f.read())
             if e.write:
                 return 1
@@ -141,7 +141,7 @@ def main():
     print('x'*50)
     input_text = input('add the text to embed:')
     print('[+] To Add Code to Images [+]')
-    print('[!] Copyleft material, all wrongs reserved!') 
+    print('[!] Copyleft material, all wrongs reserved!')
     print('[+] Processing \n', img_dir)
     text_results = add_text(str(img_dir), str(input_text))
     print('adding text result: ', text_results,'\n',' X' * 50)
