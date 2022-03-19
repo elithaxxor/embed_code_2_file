@@ -16,11 +16,13 @@ import PIL.Image
     * Offset Value in Hex. 
 '''
 ### Global Vars ###
-cwd = os.getcwd()
+# names 
 img_name = '/photo.jpg'
 img_name_2 = '/photo2.jpg'
 executable_toEmbed = 'sample.exe'
 
+# dirs 
+cwd = os.getcwd()
 img_dir = str(cwd) + str(img_name)
 img_dir_2 = str(cwd) + str(img_name_2)
 exec_dir = str(cwd) + str(executable_toEmbed)
