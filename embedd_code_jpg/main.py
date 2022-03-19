@@ -28,7 +28,7 @@ exec_dir = str(cwd) + str(executable_toEmbed)
 
 ## Logic ##
 def add_text(img_dir, input_text):
-    ''' To Inject Custom Str Byte Data to Img. '''
+    ''' To Inject Custom Custom Str Byte Data to Img. '''
     time.sleep(.5)
     try:
         with open(img_dir, 'ab') as f:
