@@ -3,6 +3,13 @@ import PIL.Image
 
 #### IMAGE OFFSET (HEX VAL) == FFD9
 ## 'ab' == append bytes
+## OFFSET = byte_content.index(bytes.fromhex('FFD9')) --> to find hex offset val 
+## f.seek(OFFSET+2) --> to read hex after .picture offset val. 
+## inject_bytes = PIL.Image.open(inject_img_bytes) <-- create new file 
+## byte_array = io.BytesIO() <-- create new file 
+## inject_bytes.save(byte_array, format='PNG') <-- create new file 
+#############################################
+
 ''' 
     * The code embeds hidden messages into png, and writes binary data to datastructure. The emedded file will execute upon running program, so beware.. 
     * Currently works with pictures [offset val FFD9]; however- the code can be refactored for .PDF .Doc etc.. [Refactor The Code Finding Data-Structures 
