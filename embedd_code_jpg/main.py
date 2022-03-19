@@ -8,7 +8,7 @@ import PIL.Image
     * Currently works with pictures [offset val FFD9]; however- the code can be refactored for .PDF .Doc etc.. [Refactor The Code Finding Data-Structures 
     * Offset Value in Hex. 
 '''
-### Vars ###
+### Global Vars ###
 cwd = os.getcwd()
 img_name = '/photo.jpg'
 img_name_2 = '/photo2.jpg'
@@ -17,7 +17,9 @@ executable_toEmbed = 'sample.exe'
 img_dir = str(cwd) + str(img_name)
 img_dir_2 = str(cwd) + str(img_name_2)
 exec_dir = str(cwd) + str(executable_toEmbed)
-## logic ##
+
+
+## Logic ##
 def add_text(img_dir, input_text):
     ''' To Inject Custom Str Byte Data to Img. '''
     time.sleep(.5)
